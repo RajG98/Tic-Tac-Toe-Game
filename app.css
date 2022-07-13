@@ -24,6 +24,7 @@ body {
     font-size: 2rem;
     font-style: normal;
     font-weight: 400;
+    z-index: 10;
     margin: 0;
     padding: 0.8rem 0 0 0.6rem;
     background-color: rgba(78, 10, 78, 0.767);
@@ -41,7 +42,7 @@ body {
     align-items: stretch;
     height: 500px;
     max-width: 35em;
-    padding: 5rem 5rem 2.5rem 5rem;
+    padding: 5.5rem 5rem 2rem 5rem;
     border: 4px solid black;
     border-radius: 20px;
     flex-wrap: wrap;
@@ -56,7 +57,7 @@ body {
 .cell {
     display: flex;
     width: 100px;
-    height: 125px;
+    height: 130px;
     flex: 0 0 33.333333%;
     border: 4px solid black;
     border-top: 0;
@@ -163,13 +164,35 @@ body {
 }
 
 @media(max-width:900px) {
-    .board {
-        padding: 6% 4%;
+    body {
+        align-items: flex-end;
+    }
 
+    .board {
+        background-position: right;
+        height: 530px;
+        margin-bottom: 4rem;
     }
 
     .cell {
-        width: 100px;
+        height: 135px;
+    }
+}
+
+@media(max-width:520px) {
+    body{
+        align-items: center;
+        margin:0;
+    }
+    .board {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 3.8rem;
+        height:400px;
+        margin:0;
+    }
+
+    .cell {
         height: 100px;
     }
 }
