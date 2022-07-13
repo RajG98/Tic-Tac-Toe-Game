@@ -1,0 +1,175 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'rubik', sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-style: italic;
+    background-image: url(./inline_image_preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heading {
+    color: white;
+    font-family: 'Cormorant+SC', Times, serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    padding: 0.8rem 0 0 0.6rem;
+    background-color: rgba(78, 10, 78, 0.767);
+    border-bottom: 1px solid white;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 500px;
+    max-width: 35em;
+    padding: 5rem 5rem 2.5rem 5rem;
+    border: 4px solid black;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    font-weight: 800;
+    background-image: url(./window.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.cell {
+    display: flex;
+    width: 100px;
+    height: 125px;
+    flex: 0 0 33.333333%;
+    border: 4px solid black;
+    border-top: 0;
+    border-left: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 6.5rem;
+    cursor: pointer;
+    -webkit-text-stroke: 3px black;
+    position: relative;
+}
+
+.cell:nth-last-of-type(3n-2) {
+    border-right: 0;
+}
+
+.cell:nth-of-type(n+7) {
+    border-bottom: 0;
+}
+
+.avoid-clicks {
+    pointer-events: none;
+}
+
+.x-wins .board::before {
+    content: "X Wins!";
+    position: absolute;
+    z-index: 10;
+    top: 23%;
+    color: #0b06b2;
+    font-size: 6rem;
+    -webkit-text-stroke: 3px white;
+    cursor: text;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 10px inset rgb(87, 83, 83);
+    text-shadow: -1px 4px 4px rgba(102, 102, 102, 0.85);
+    padding: 3rem 4rem 8rem;
+}
+
+.o-wins .board::before {
+    content: "0 Wins!";
+    position: absolute;
+    z-index: 10;
+    top: 23%;
+    color: #ff0000;
+    font-size: 6rem;
+    -webkit-text-stroke: 3px white;
+    cursor: text;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 10px inset rgb(87, 83, 83);
+    text-shadow: -1px 4px 4px rgba(102, 102, 102, 0.85);
+    padding: 3rem 4rem 8rem;
+}
+
+.draw .board::before {
+    content: "Draw!";
+    position: absolute;
+    z-index: 10;
+    top: 23%;
+    color: #7e1882;
+    font-size: 6rem;
+    -webkit-text-stroke: 3px white;
+    cursor: text;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 10px inset rgb(87, 83, 83);
+    text-shadow: -1px 4px 4px rgba(102, 102, 102, 0.85);
+    padding: 3rem 4rem 8rem;
+}
+
+.restart {
+    position: absolute;
+    z-index: 10;
+    font-size: 2rem;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    top: 60%;
+    display: none;
+}
+
+.restart:hover {
+    background-color: black;
+    border-color: white;
+    color: white;
+}
+
+.cell:hover.hoverX::after {
+    content: "X";
+    color: black;
+    opacity: 0.5;
+    -webkit-text-stroke: 0;
+}
+
+.cell:hover.hoverO::after {
+    content: "O";
+    color: black;
+    opacity: 0.5;
+    -webkit-text-stroke: 0;
+}
+
+@media(max-width:900px) {
+    .board {
+        padding: 6% 4%;
+
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+    }
+}
