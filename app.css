@@ -195,4 +195,16 @@ body {
     .cell {
         height: 100px;
     }
+    .x-wins .board::before{
+        top:10%;
+        white-space: nowrap;
+    }
+    .o-wins .board::before{
+        top:10%;
+        white-space: nowrap;
+    }
+    .draw .board::before{
+        top:10%;
+        white-space: nowrap;
+    }
 }
