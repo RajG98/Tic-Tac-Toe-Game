@@ -6,8 +6,12 @@ let clickNum = 0;
 let xNum = [];
 let oNum = [];
 let flag = 1;
+let touchScreen = false;
 let winnerDeclared = false;
-
+board.addEventListener("touchstart", () => {
+    touchScreen = true;
+    cell.classList.remove("hoverX")
+})
 board.addEventListener("click", (e) => {
     if (e.target.nodeName === "SPAN") {
         clickNum += 1;
@@ -15,9 +19,11 @@ board.addEventListener("click", (e) => {
             e.target.innerText = "O";
             e.target.style.color = "#ff0000";
             oNum.push(e.target.id);
-            for (let cell of cellEvent) {
-                cell.classList.add("hoverX");
-                cell.classList.remove("hoverO");
+            if (!touchScreen) {
+                for (let cell of cellEvent) {
+                    cell.classList.add("hoverX");
+                    cell.classList.remove("hoverO");
+                }
             }
             if (rowwise(oNum) || colwise(oNum) || diagonal(oNum)) {
                 body.classList.add("o-wins");
@@ -30,9 +36,11 @@ board.addEventListener("click", (e) => {
             e.target.innerText = "X";
             e.target.style.color = "#0b06b2";
             xNum.push(e.target.id);
-            for (let cell of cellEvent) {
-                cell.classList.add("hoverO");
-                cell.classList.remove("hoverX");
+            if (!touchScreen) {
+                for (let cell of cellEvent) {
+                    cell.classList.add("hoverO");
+                    cell.classList.remove("hoverX");
+                }
             }
             if (rowwise(xNum) || colwise(xNum) || diagonal(xNum)) {
                 body.classList.add("x-wins")
