@@ -187,13 +187,15 @@ body {
     .board {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-        padding-top: 3.8rem;
+        padding-top: 4.2rem;
         height:400px;
         margin:0;
+        background-position: top;
     }
 
     .cell {
         height: 100px;
+        font-size: 5rem;
     }
     .x-wins .board::before{
         top:10%;
