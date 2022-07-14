@@ -14,6 +14,9 @@ $(document).ready(function () {
         $(".cell").removeClass('hoverX');
         touchScreen = true;
     }
+    else {
+        touchScreen = false;
+    }
 })
 
 board.addEventListener("click", (e) => {
