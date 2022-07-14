@@ -8,9 +8,12 @@ let oNum = [];
 let flag = 1;
 let touchScreen = false;
 let winnerDeclared = false;
-board.addEventListener("touchstart", () => {
+body.addEventListener("touchstart", () => {
     touchScreen = true;
-    cell.classList.remove("hoverX")
+    console.log("done");
+    cellEvent.forEach((cell) => {
+        cell.classList.remove("hoverX")
+    })
 })
 board.addEventListener("click", (e) => {
     if (e.target.nodeName === "SPAN") {
