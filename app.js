@@ -8,13 +8,14 @@ let oNum = [];
 let flag = 1;
 let touchScreen = false;
 let winnerDeclared = false;
-body.addEventListener("touchstart", () => {
-    touchScreen = true;
-    console.log("done");
-    cellEvent.forEach((cell) => {
-        cell.classList.remove("hoverX")
-    })
+
+$(document).ready(function () {
+    if ($(window).width() < 850) {
+        $(".cell").removeClass('hoverX');
+        touchScreen = true;
+    }
 })
+
 board.addEventListener("click", (e) => {
     if (e.target.nodeName === "SPAN") {
         clickNum += 1;
@@ -78,8 +79,10 @@ board.addEventListener("click", (e) => {
 btn.addEventListener("click", () => {
     for (let events of cellEvent) {
         events.innerHTML = "";
-        events.classList.remove("avoid-clicks","hoverO");
-        events.classList.add("hoverX");
+        events.classList.remove("avoid-clicks", "hoverO");
+        if (!touchScreen) {
+            events.classList.add("hoverX");
+        }
     }
     body.classList.remove("x-wins", "o-wins", "draw");
     btn.style.display = "none";
