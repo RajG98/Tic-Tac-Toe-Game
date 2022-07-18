@@ -13,7 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     font-style: italic;
-    background-image: url(./inline_image_preview.jpg);
+    background-image: url("https://source.unsplash.com/600x315");
     background-repeat: no-repeat;
     background-size: cover;
 }
